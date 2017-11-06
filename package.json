@@ -1,0 +1,33 @@
+{
+  "name": "ngjs-es6-cli",
+  "version": "0.0.1",
+  "description": "A module files creation for AngularJS",
+  "main": "index.js",
+  "bin": {
+    "ngjs": "./build/index.js"
+  },
+  "scripts": {
+    "build": "babel -d build/ src/",
+    "start": "npm run build && node build/index.js"
+  },
+  "keywords": [
+    "AngularJS",
+    "CLI"
+  ],
+  "author": "FjVillar",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "clear": "0.0.1",
+    "clui": "^0.3.6",
+    "figlet": "^1.2.0",
+    "inquirer": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
