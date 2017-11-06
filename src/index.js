@@ -40,10 +40,12 @@ inquirer.prompt(questions).then((result) => {
     if (createFolderError) {
       // WIP handleError()
     }
-    fs.writeFile(`${filePathValid.filePath}${moduleName}/${moduleName}.module.js`, boilerPlates.moduleBoilerplate, (createModuleError) => {
-      if (createModuleError) {
-        // WIP handleError()
-      }
+    boilerPlates.forEach((boilerplate) => {
+      fs.writeFile(`${filePathValid.filePath}${moduleName}/${moduleName}${boilerplate.typeText}`, boilerplate.text, (createModuleError) => {
+        if (createModuleError) {
+          // WIP handleError()
+        }
+      });
     });
   });
 }).catch((error) => {

@@ -3,12 +3,16 @@ const getBoilerplate = (moduleName) => {
     `import ${moduleName}Component from './${moduleName}.component';
 
 const module = angular.module('${moduleName}')
-.component('${moduleName}', ${moduleName}Component).name;
+    .component('${moduleName}', ${moduleName}Component).name;
 
 export default module;
-  `;
 
-  return boilerplate;
+`;
+
+  return {
+    text: boilerplate,
+    typeText: '.module.js',
+  };
 };
 
 export default getBoilerplate;
