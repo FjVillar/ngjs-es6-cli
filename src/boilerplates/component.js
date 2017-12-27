@@ -4,7 +4,7 @@ const getBoilerplate = (moduleName) => {
 const ${moduleName}Component = {
     bindings: {},
     template: \`\`,
-    controlle: class ${moduleName}Ctrl {
+    controller: class ${moduleName}Ctrl {
     }
 }
 

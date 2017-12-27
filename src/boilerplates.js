@@ -1,18 +1,31 @@
 import getComponentBoilerPlate from './boilerplates/component';
 import getModuleBoilerPlate from './boilerplates/module';
+import getDataSrvBoilerPlate from './boilerplates/dataSrv';
+import getStateBoilerPlate from './boilerplates/state';
 
 const getBoilerPlates = (additionalFiles, moduleName) => {
-  console.log(additionalFiles);
+  console.log(additionalFiles.length);
 
-  // To-Do actually module boilerplate its more dinamic than compontent boilerplate
-  //  in the near future we have to handle that now its just scoped to component and module
-  const moduleBoilerplate = getModuleBoilerPlate(moduleName);
-  const componentBoilerplate = getComponentBoilerPlate(moduleName);
+  const boilerPlates = [];
 
-  return [
-    moduleBoilerplate,
-    componentBoilerplate,
-  ];
+  // Fixed files: these two files are always created
+  boilerPlates.push(getModuleBoilerPlate(moduleName));
+  boilerPlates.push(getComponentBoilerPlate(moduleName));
+
+  additionalFiles.forEach(elem => {
+    switch(elem){
+      case 'dataSrv':
+        boilerPlates.push(getDataSrvBoilerPlate(moduleName));
+        break;
+      case 'state':
+        boilerPlates.push(getStateBoilerPlate(moduleName));
+        break;
+      default: 
+        break;
+    }
+  });
+
+  return boilerPlates;
 };
 // additionalFiles.forEach((value) => {
 //   console.log(value);

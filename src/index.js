@@ -32,9 +32,7 @@ inquirer.prompt(questions).then((result) => {
   const moduleName = result.moduleName ? result.moduleName : filePathValid.moduleName;
 
   // console.log(`fullPath: ${filePathValid.filePath}${moduleName}`);
-  console.log(moduleName);
   const boilerPlates = getBoilerplates(result.additionalFiles, moduleName);
-  console.log(boilerPlates);
 
   fs.mkdir(`${filePathValid.filePath}${moduleName}`, (createFolderError) => {
     if (createFolderError) {
